@@ -3,9 +3,12 @@
 //  GetLocalVideo
 //
 //  Created by Charles.Yao on 16/9/5.
-//  Copyright © 2016年 com.picovr.picovr. All rights reserved.
+//  Copyright © 2016年 Charles.Yao All rights reserved.
 //
-
+#import "FirstViewController.h"
+#import <Photos/Photos.h>
+#import "AlbumManager.h"
+#import "FileWatcher.h"
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
@@ -16,30 +19,46 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [[FileWatcher shared] startManager];
+    [self getAlbumRightAndSource]; //获取相册权限和数据
+
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    FirstViewController *rvc = [[FirstViewController alloc] init];
+    UINavigationController *nvc = [[UINavigationController alloc]initWithRootViewController:rvc];
+    self.window.rootViewController = nvc;
+    
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+- (void)getAlbumRightAndSource{
+    
+    PHAuthorizationStatus author = [PHPhotoLibrary authorizationStatus];
+    if (author == PHAuthorizationStatusNotDetermined || author == PHAuthorizationStatusRestricted || author == PHAuthorizationStatusDenied) {
+        NSLog(@" 用户尚未做出选择这个应用程序的问候||此应用程序没有被授权访问的照片数据 || 用户已经明确否认了这一照片数据的应用程序访问");
+    }else{
+        
+        [[AlbumManager shared] startManager];
+        return;
+    }
+    
+    if ([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusNotDetermined) {
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            if (status == PHAuthorizationStatusAuthorized) {
+                [[AlbumManager shared] startManager];
+                NSLog(@"相册授权开启，启动AlbumManager");
+            }
+        }];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[FileWatcher shared] stopManager];
+    [[AlbumManager shared] stopManager];
 }
 
 @end

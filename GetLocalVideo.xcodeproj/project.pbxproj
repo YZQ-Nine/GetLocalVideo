@@ -7,25 +7,70 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5609BBDB1D7FE2A400FAE056 /* UIView+PVRExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 5609BBDA1D7FE2A400FAE056 /* UIView+PVRExtention.m */; };
+		562ADF3C1DD574E700049A7B /* AlbumVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562ADF3B1DD574E700049A7B /* AlbumVideoViewController.m */; };
+		562ADF441DD58F7400049A7B /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 562ADF431DD58F7400049A7B /* TableViewCell.m */; };
+		562ADF471DD58F8E00049A7B /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 562ADF461DD58F8E00049A7B /* VideoModel.m */; };
+		562ADF501DD590FA00049A7B /* AlbumManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 562ADF4F1DD590FA00049A7B /* AlbumManager.m */; };
+		562ADF541DD592EB00049A7B /* UILabel+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 562ADF531DD592EB00049A7B /* UILabel+category.m */; };
+		562ADF571DD593F300049A7B /* UIColor+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 562ADF561DD593F300049A7B /* UIColor+category.m */; };
+		562ADF5A1DD59A5C00049A7B /* SandBoxHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 562ADF581DD59A5C00049A7B /* SandBoxHelper.m */; };
+		562ADF5D1DD59B4900049A7B /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 562ADF5C1DD59B4900049A7B /* Notifications.m */; };
+		562ADF601DD59DAC00049A7B /* FileWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 562ADF5F1DD59DAC00049A7B /* FileWatcher.m */; };
+		562ADF621DD5B48C00049A7B /* posters_default_horizontal_750@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 562ADF611DD5B48C00049A7B /* posters_default_horizontal_750@2x.png */; };
+		564BAD081D7D532000D63F56 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 564BAD071D7D532000D63F56 /* FirstViewController.m */; };
+		565F69F11D8E8F4C00F88E81 /* iTunesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565F69F01D8E8F4C00F88E81 /* iTunesViewController.m */; };
 		568105011D7D20B400C80E06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 568105001D7D20B400C80E06 /* main.m */; };
 		568105041D7D20B400C80E06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 568105031D7D20B400C80E06 /* AppDelegate.m */; };
-		568105071D7D20B400C80E06 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 568105061D7D20B400C80E06 /* ViewController.m */; };
 		5681050A1D7D20B400C80E06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 568105081D7D20B400C80E06 /* Main.storyboard */; };
 		5681050C1D7D20B400C80E06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5681050B1D7D20B400C80E06 /* Assets.xcassets */; };
 		5681050F1D7D20B400C80E06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5681050D1D7D20B400C80E06 /* LaunchScreen.storyboard */; };
+		56A658CC1D9377CF00E7B828 /* NSString+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A658CB1D9377CF00E7B828 /* NSString+category.m */; };
+		56EEA5B21D7EC62400379B37 /* playerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EEA5B11D7EC62400379B37 /* playerViewController.m */; };
+		56FABC7B1D928E8100CDAE33 /* UIImage+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FABC7A1D928E8100CDAE33 /* UIImage+category.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5609BBD91D7FE2A400FAE056 /* UIView+PVRExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PVRExtention.h"; sourceTree = "<group>"; };
+		5609BBDA1D7FE2A400FAE056 /* UIView+PVRExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PVRExtention.m"; sourceTree = "<group>"; };
+		562ADF3A1DD574E700049A7B /* AlbumVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumVideoViewController.h; sourceTree = "<group>"; };
+		562ADF3B1DD574E700049A7B /* AlbumVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumVideoViewController.m; sourceTree = "<group>"; };
+		562ADF421DD58F7400049A7B /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		562ADF431DD58F7400049A7B /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		562ADF451DD58F8E00049A7B /* VideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
+		562ADF461DD58F8E00049A7B /* VideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoModel.m; sourceTree = "<group>"; };
+		562ADF4E1DD590FA00049A7B /* AlbumManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumManager.h; sourceTree = "<group>"; };
+		562ADF4F1DD590FA00049A7B /* AlbumManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumManager.m; sourceTree = "<group>"; };
+		562ADF511DD5915600049A7B /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		562ADF521DD592EB00049A7B /* UILabel+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+category.h"; sourceTree = "<group>"; };
+		562ADF531DD592EB00049A7B /* UILabel+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+category.m"; sourceTree = "<group>"; };
+		562ADF551DD593F300049A7B /* UIColor+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+category.h"; sourceTree = "<group>"; };
+		562ADF561DD593F300049A7B /* UIColor+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+category.m"; sourceTree = "<group>"; };
+		562ADF581DD59A5C00049A7B /* SandBoxHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SandBoxHelper.m; sourceTree = "<group>"; };
+		562ADF591DD59A5C00049A7B /* SandBoxHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SandBoxHelper.h; sourceTree = "<group>"; };
+		562ADF5B1DD59B4900049A7B /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
+		562ADF5C1DD59B4900049A7B /* Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notifications.m; sourceTree = "<group>"; };
+		562ADF5E1DD59DAC00049A7B /* FileWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileWatcher.h; sourceTree = "<group>"; };
+		562ADF5F1DD59DAC00049A7B /* FileWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileWatcher.m; sourceTree = "<group>"; };
+		562ADF611DD5B48C00049A7B /* posters_default_horizontal_750@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "posters_default_horizontal_750@2x.png"; sourceTree = "<group>"; };
+		564BAD061D7D532000D63F56 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		564BAD071D7D532000D63F56 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		565F69EF1D8E8F4C00F88E81 /* iTunesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesViewController.h; sourceTree = "<group>"; };
+		565F69F01D8E8F4C00F88E81 /* iTunesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesViewController.m; sourceTree = "<group>"; };
 		568104FC1D7D20B400C80E06 /* GetLocalVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetLocalVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		568105001D7D20B400C80E06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		568105021D7D20B400C80E06 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		568105031D7D20B400C80E06 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		568105051D7D20B400C80E06 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		568105061D7D20B400C80E06 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		568105091D7D20B400C80E06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5681050B1D7D20B400C80E06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5681050E1D7D20B400C80E06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		568105101D7D20B400C80E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56A658CA1D9377CF00E7B828 /* NSString+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+category.h"; sourceTree = "<group>"; };
+		56A658CB1D9377CF00E7B828 /* NSString+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+category.m"; sourceTree = "<group>"; };
+		56EEA5B01D7EC62400379B37 /* playerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playerViewController.h; sourceTree = "<group>"; };
+		56EEA5B11D7EC62400379B37 /* playerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playerViewController.m; sourceTree = "<group>"; };
+		56FABC791D928E8100CDAE33 /* UIImage+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+category.h"; sourceTree = "<group>"; };
+		56FABC7A1D928E8100CDAE33 /* UIImage+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+category.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +84,110 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5609BBDC1D7FE77900FAE056 /* AlbumVideo */ = {
+			isa = PBXGroup;
+			children = (
+				562ADF3A1DD574E700049A7B /* AlbumVideoViewController.h */,
+				562ADF3B1DD574E700049A7B /* AlbumVideoViewController.m */,
+			);
+			name = AlbumVideo;
+			sourceTree = "<group>";
+		};
+		5609BBDF1D7FE7F100FAE056 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				562ADF611DD5B48C00049A7B /* posters_default_horizontal_750@2x.png */,
+				562ADF5B1DD59B4900049A7B /* Notifications.h */,
+				562ADF5C1DD59B4900049A7B /* Notifications.m */,
+				562ADF591DD59A5C00049A7B /* SandBoxHelper.h */,
+				562ADF581DD59A5C00049A7B /* SandBoxHelper.m */,
+				5609BBD91D7FE2A400FAE056 /* UIView+PVRExtention.h */,
+				5609BBDA1D7FE2A400FAE056 /* UIView+PVRExtention.m */,
+				56FABC791D928E8100CDAE33 /* UIImage+category.h */,
+				56FABC7A1D928E8100CDAE33 /* UIImage+category.m */,
+				56A658CA1D9377CF00E7B828 /* NSString+category.h */,
+				56A658CB1D9377CF00E7B828 /* NSString+category.m */,
+				562ADF521DD592EB00049A7B /* UILabel+category.h */,
+				562ADF531DD592EB00049A7B /* UILabel+category.m */,
+				562ADF551DD593F300049A7B /* UIColor+category.h */,
+				562ADF561DD593F300049A7B /* UIColor+category.m */,
+				562ADF511DD5915600049A7B /* Header.h */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
+		5609BBE01D7FE80B00FAE056 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				568105021D7D20B400C80E06 /* AppDelegate.h */,
+				568105031D7D20B400C80E06 /* AppDelegate.m */,
+				562ADF3F1DD58EE600049A7B /* Controllers */,
+				562ADF401DD58EF400049A7B /* Views */,
+				562ADF411DD58F3300049A7B /* Models */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		5609BBE11D7FE81800FAE056 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				568105081D7D20B400C80E06 /* Main.storyboard */,
+				5681050B1D7D20B400C80E06 /* Assets.xcassets */,
+				5681050D1D7D20B400C80E06 /* LaunchScreen.storyboard */,
+				568105101D7D20B400C80E06 /* Info.plist */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
+		562ADF3E1DD5753F00049A7B /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				562ADF5E1DD59DAC00049A7B /* FileWatcher.h */,
+				562ADF5F1DD59DAC00049A7B /* FileWatcher.m */,
+				562ADF4E1DD590FA00049A7B /* AlbumManager.h */,
+				562ADF4F1DD590FA00049A7B /* AlbumManager.m */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		562ADF3F1DD58EE600049A7B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				564BAD061D7D532000D63F56 /* FirstViewController.h */,
+				564BAD071D7D532000D63F56 /* FirstViewController.m */,
+				56EEA5B01D7EC62400379B37 /* playerViewController.h */,
+				56EEA5B11D7EC62400379B37 /* playerViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		562ADF401DD58EF400049A7B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				562ADF421DD58F7400049A7B /* TableViewCell.h */,
+				562ADF431DD58F7400049A7B /* TableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		562ADF411DD58F3300049A7B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				562ADF451DD58F8E00049A7B /* VideoModel.h */,
+				562ADF461DD58F8E00049A7B /* VideoModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		565F69EE1D8E8EF600F88E81 /* iTunesVideo */ = {
+			isa = PBXGroup;
+			children = (
+				565F69EF1D8E8F4C00F88E81 /* iTunesViewController.h */,
+				565F69F01D8E8F4C00F88E81 /* iTunesViewController.m */,
+			);
+			name = iTunesVideo;
+			sourceTree = "<group>";
+		};
 		568104F31D7D20B400C80E06 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +207,12 @@
 		568104FE1D7D20B400C80E06 /* GetLocalVideo */ = {
 			isa = PBXGroup;
 			children = (
-				568105021D7D20B400C80E06 /* AppDelegate.h */,
-				568105031D7D20B400C80E06 /* AppDelegate.m */,
-				568105051D7D20B400C80E06 /* ViewController.h */,
-				568105061D7D20B400C80E06 /* ViewController.m */,
-				568105081D7D20B400C80E06 /* Main.storyboard */,
-				5681050B1D7D20B400C80E06 /* Assets.xcassets */,
-				5681050D1D7D20B400C80E06 /* LaunchScreen.storyboard */,
-				568105101D7D20B400C80E06 /* Info.plist */,
+				5609BBE01D7FE80B00FAE056 /* Base */,
+				5609BBDC1D7FE77900FAE056 /* AlbumVideo */,
+				565F69EE1D8E8EF600F88E81 /* iTunesVideo */,
+				562ADF3E1DD5753F00049A7B /* Manager */,
+				5609BBDF1D7FE7F100FAE056 /* Tools */,
+				5609BBE11D7FE81800FAE056 /* Others */,
 				568104FF1D7D20B400C80E06 /* Supporting Files */,
 			);
 			path = GetLocalVideo;
@@ -110,6 +257,7 @@
 				TargetAttributes = {
 					568104FB1D7D20B400C80E06 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = Y3N9MZ2AHY;
 					};
 				};
 			};
@@ -138,6 +286,7 @@
 			files = (
 				5681050F1D7D20B400C80E06 /* LaunchScreen.storyboard in Resources */,
 				5681050C1D7D20B400C80E06 /* Assets.xcassets in Resources */,
+				562ADF621DD5B48C00049A7B /* posters_default_horizontal_750@2x.png in Resources */,
 				5681050A1D7D20B400C80E06 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,9 +298,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				568105071D7D20B400C80E06 /* ViewController.m in Sources */,
+				562ADF5A1DD59A5C00049A7B /* SandBoxHelper.m in Sources */,
+				562ADF601DD59DAC00049A7B /* FileWatcher.m in Sources */,
+				565F69F11D8E8F4C00F88E81 /* iTunesViewController.m in Sources */,
+				562ADF571DD593F300049A7B /* UIColor+category.m in Sources */,
+				562ADF471DD58F8E00049A7B /* VideoModel.m in Sources */,
+				562ADF541DD592EB00049A7B /* UILabel+category.m in Sources */,
+				5609BBDB1D7FE2A400FAE056 /* UIView+PVRExtention.m in Sources */,
 				568105041D7D20B400C80E06 /* AppDelegate.m in Sources */,
+				562ADF441DD58F7400049A7B /* TableViewCell.m in Sources */,
+				562ADF3C1DD574E700049A7B /* AlbumVideoViewController.m in Sources */,
+				56A658CC1D9377CF00E7B828 /* NSString+category.m in Sources */,
 				568105011D7D20B400C80E06 /* main.m in Sources */,
+				56FABC7B1D928E8100CDAE33 /* UIImage+category.m in Sources */,
+				562ADF501DD590FA00049A7B /* AlbumManager.m in Sources */,
+				56EEA5B21D7EC62400379B37 /* playerViewController.m in Sources */,
+				564BAD081D7D532000D63F56 /* FirstViewController.m in Sources */,
+				562ADF5D1DD59B4900049A7B /* Notifications.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +376,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -250,7 +413,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -261,10 +424,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: yucai han (H9AG8259Y9)";
+				DEVELOPMENT_TEAM = Y3N9MZ2AHY;
 				INFOPLIST_FILE = GetLocalVideo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.picovr.picovr.GetLocalVideo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pico.localVideoDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "778426b4-7cf9-4f47-be6c-f9fd3720e434";
+				PROVISIONING_PROFILE_SPECIFIER = wide_pico;
 			};
 			name = Debug;
 		};
@@ -272,10 +440,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: yucai han (H9AG8259Y9)";
 				INFOPLIST_FILE = GetLocalVideo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.picovr.picovr.GetLocalVideo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pico.localVideoDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "778426b4-7cf9-4f47-be6c-f9fd3720e434";
+				PROVISIONING_PROFILE_SPECIFIER = wide_pico;
 			};
 			name = Release;
 		};
@@ -298,6 +470,7 @@
 				568105151D7D20B400C80E06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
