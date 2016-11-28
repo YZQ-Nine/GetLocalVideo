@@ -173,7 +173,7 @@
         CGImageRef image = [gen copyCGImageAtTime:time actualTime:&actualTime error:&error];
         
         if (error) {
-            UIImage *placeHoldImg = [UIImage imageNamed:@"posters_default_horizontal_750"];
+            UIImage *placeHoldImg = [UIImage imageNamed:@"posters_default_horizontal"];
             return placeHoldImg;
         }
         
@@ -185,7 +185,7 @@
         
     } else {
         
-         UIImage *placeHoldImg = [UIImage imageNamed:@"posters_default_horizontal_750"];
+         UIImage *placeHoldImg = [UIImage imageNamed:@"posters_default_horizontal"];
         return placeHoldImg;
     }
 

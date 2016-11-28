@@ -10,6 +10,28 @@
 #import <Photos/Photos.h>
 #import "Header.h"
 
+
+typedef NS_ENUM(NSInteger, AlbumVideoBehaviorType) {
+    
+    /**
+     *  获取相册全部视频
+     */
+    ALBUMVIDEOBEHAVIOR_GETALL = 0,
+    
+    /**
+     *  相册添加视频
+     */
+    ALBUMVIDEOBEHAVIOR_INSTER = 1,
+    
+    /**
+     *  相册删除视频
+     */
+    ALBUMVIDEOBEHAVIOR_REMOVE = 2
+    
+};
+
+
+
 @interface AlbumManager : NSObject
 
 singleton_interface(AlbumManager)
@@ -46,7 +68,7 @@ singleton_interface(AlbumManager)
  *  @return 资源数组
  */
 
-- (void)getAlbumVideo;
+- (void)getAlbumVideoWithBehaviorType:(AlbumVideoBehaviorType)type PHObjectsArr:(NSArray *)phobjectsArr;
 
 //删除相册视频
 - (void)deleteAlbumVideo:(NSArray *)assetArr;

@@ -34,7 +34,7 @@ singleton_implementation(AlbumManager)
         self.dataSource = [[NSMutableArray alloc] init];
         self.assetsFetchResults = [[PHFetchResult alloc] init];
         [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
-        [self getAlbumVideo];
+        [self getAlbumVideoWithBehaviorType:ALBUMVIDEOBEHAVIOR_GETALL PHObjectsArr:nil];
     });
 }
 
@@ -54,14 +54,23 @@ singleton_implementation(AlbumManager)
         if (collectionChanges) {
             if ([collectionChanges hasIncrementalChanges]) {
                 //监听相册视频的增删
-                if (collectionChanges.insertedIndexes.count || collectionChanges.removedIndexes.count) {
-                    [self getAlbumVideo];
+                //增加了
+                if (collectionChanges.insertedObjects.count > 0) {
+                    NSMutableArray *mArr = [[NSMutableArray alloc] initWithArray:collectionChanges.insertedObjects];
+                    [self getAlbumVideoWithBehaviorType:ALBUMVIDEOBEHAVIOR_INSTER PHObjectsArr:mArr];
                 }
+                //删除了
+                if (collectionChanges.removedObjects.count > 0) {
+                    
+                    NSMutableArray *mArr = [[NSMutableArray alloc] initWithArray:collectionChanges.removedObjects];
+                    [self getAlbumVideoWithBehaviorType:ALBUMVIDEOBEHAVIOR_REMOVE PHObjectsArr:mArr];
+                }
+                /**监听完一次更新一下监听对象*/
+                self.assetsFetchResults = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeVideo options:[self getFetchPhotosOptions]];
             }
         }
     });
 }
-
 #pragma mark - 相机授权
 - (BOOL)getCameraRight {
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
@@ -90,87 +99,89 @@ singleton_implementation(AlbumManager)
     return allPhotosOptions;
 }
 
-- (void)getAlbumVideo{
+- (void)getAlbumVideoWithBehaviorType:(AlbumVideoBehaviorType)type PHObjectsArr:(NSArray *)phobjectsArr;{
     
-    self.assetsFetchResults = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeVideo options:[self getFetchPhotosOptions]];
-    
-    if (!self.assetsFetchResults.count) {
-        [self.dataSource removeAllObjects];
-        [[NSNotificationCenter defaultCenter] postNotificationName:RefreshAlbumUINotification object:nil];
-        return;
-    }
-    
-    __block NSMutableArray *assetArr = [[NSMutableArray alloc] init];
-    __block NSMutableArray *videoModeArr = [[NSMutableArray alloc] init];
-    
-    for (PHAsset *videoAsset in self.assetsFetchResults) {
-        [assetArr addObject:videoAsset];
-        [[PHImageManager defaultManager] requestPlayerItemForVideo:videoAsset options:nil resultHandler:^(AVPlayerItem * _Nullable playerItem, NSDictionary * _Nullable info) {
+    @synchronized(self) {
+        if (type == ALBUMVIDEOBEHAVIOR_GETALL) {
             
-            NSString *filePath = [info valueForKey:@"PHImageFileSandboxExtensionTokenKey"];
-            if (filePath && filePath.length > 0) {
-                NSArray *lyricArr = [filePath componentsSeparatedByString:@";"];
-                NSString *privatePath = [lyricArr lastObject];
-                if (privatePath.length > 8) {
-                    NSString *videoPath = [privatePath substringFromIndex:8];
-                    if (videoPath && videoPath.length > 0) {
-                        NSArray *fieldArr = [videoPath componentsSeparatedByString:@"/"];
-                        if (fieldArr && fieldArr.count > 0) {
-                            VideoModel *model = [[VideoModel alloc] init];
-                            model.videoPath = videoPath;
-                            model.videoName = [fieldArr lastObject];
-                            model.videoSize = [SandBoxHelper fileSizeForPath:videoPath];
-                            model.videoImgPath = [self saveImg:[UIImage getThumbnailImage:videoPath] withVideoMid:model.videoName];
-                            model.videoAsset = videoAsset;
-                            [videoModeArr addObject:model];
-                           
-                            if (assetArr.count == videoModeArr.count) {
-                                [self.dataSource removeAllObjects];
-                                [self.dataSource addObjectsFromArray:videoModeArr];
-                                [self cleanImgWithUseless];
+            self.assetsFetchResults = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeVideo options:[self getFetchPhotosOptions]];
+            
+            if (!self.assetsFetchResults.count) {
+                [self.dataSource removeAllObjects];
+                [[NSNotificationCenter defaultCenter] postNotificationName:RefreshAlbumUINotification object:nil];
+                return;
+            }
+            [self.dataSource removeAllObjects];
+        }
+        
+        for (PHAsset *videoAsset in type == ALBUMVIDEOBEHAVIOR_GETALL ? self.assetsFetchResults : phobjectsArr) {
+            
+            [[PHImageManager defaultManager] requestPlayerItemForVideo:videoAsset options:nil resultHandler:^(AVPlayerItem * _Nullable playerItem, NSDictionary * _Nullable info) {
+                
+                NSString *filePath = [info valueForKey:@"PHImageFileSandboxExtensionTokenKey"];
+                if (filePath && filePath.length > 0) {
+                    NSArray *lyricArr = [filePath componentsSeparatedByString:@";"];
+                    NSString *privatePath = [lyricArr lastObject];
+                    if (privatePath.length > 8) {
+                        NSString *videoPath = [privatePath substringFromIndex:8];
+                        if (videoPath && videoPath.length > 0) {
+                            NSArray *fieldArr = [videoPath componentsSeparatedByString:@"/"];
+                            if (fieldArr != nil && ![fieldArr isKindOfClass:[NSNull class]] && fieldArr.count != 0) {
+                               
+                                if (type == ALBUMVIDEOBEHAVIOR_REMOVE) {
+                                    if (self.dataSource.count > 0) {
+                                        /**数组的安全遍历*/
+                                        NSArray *arr = [NSArray arrayWithArray:self.dataSource];
+                                        for (VideoModel *model in arr) {
+                                            if ([model.videoName isEqualToString:[fieldArr lastObject]]) {
+                                                [self.dataSource removeObject:model];
+                                                [self cleanImgWithUseless:model.videoImgPath];
+                                            }
+                                        }
+                                    }
+                                } else {
+                                    VideoModel *model = [[VideoModel alloc] init];
+                                    model.videoPath = videoPath;
+                                    model.videoName = [fieldArr lastObject];
+                                    model.videoSize = [SandBoxHelper fileSizeForPath:videoPath];
+                                    model.videoImgPath = [self saveImg:[UIImage getThumbnailImage:videoPath] withVideoMid:model.videoName];
+                                    model.videoAsset = videoAsset;
+                                    [self.dataSource addObject:model];
+                                }
+                                
+                                NSLog(@"相册视频数量为 = %ld", self.dataSource.count);
+                                
                                 dispatch_async(dispatch_get_main_queue(), ^{
                                     [[NSNotificationCenter defaultCenter] postNotificationName:RefreshAlbumUINotification object:nil];
+                                    
                                 });
-                                NSLog(@"相册数据已全部请求完毕总共 %lu个文件",(unsigned long)self.dataSource.count);
                             }
                         }
                     }
                 }
-            }
-        }];
+            }];
+        }
     }
 }
 
 #pragma mark 遍历图片存储文件夹如果相册资源已删除，也要把图片删掉
-- (void)cleanImgWithUseless {
-    
-    dispatch_async(album_queue(), ^{
-        NSMutableArray *imgMarr = [[NSMutableArray alloc] init];
-        for (VideoModel *model in self.dataSource) {
-            NSString *videoImgName = [NSString stringWithFormat:@"%@.png",model.videoName];
-            [imgMarr addObject:videoImgName];
-        }
-        
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSError *error = nil;
-        NSArray *fileList = [[NSArray alloc] init];
-        //fileList便是包含有该文件夹下所有文件的文件名及文件夹名的数组
-        fileList = [fileManager contentsOfDirectoryAtPath:[SandBoxHelper AlbumVideoImagePath] error:&error];
-        NSLog(@"路径==%@,fileList%@",[SandBoxHelper AlbumVideoImagePath],fileList);
-        if (fileList.count > 0) {
-            for (NSString *file in fileList) {
-                if (![imgMarr containsObject:file]) {
-                    NSString *imgPath = [NSString stringWithFormat:@"%@/%@",[SandBoxHelper AlbumVideoImagePath],file];
-                    [fileManager removeItemAtPath:imgPath error:nil];
-                    NSLog(@"经过过滤未发现%@文件，所以删除改视频缩略图, 图片地址 = %@",file,imgPath);
-                }
-            }
-        }
-    });
+- (void)cleanImgWithUseless:(NSString *)imgPath {
+    if (imgPath) {
+        dispatch_async(album_queue(), ^{
+            [SandBoxHelper deleteFile:imgPath];
+        });
+    }
 }
 
 - (NSString *)saveImg:(UIImage *)image withVideoMid:(NSString *)videoMid{
     
+    if (!image) {
+        image = [UIImage imageNamed:@"posters_default_horizontal"];
+    }
+    
+    if (!videoMid) {
+        videoMid = [NSString uuid];
+    }
     //png格式
     NSData *imagedata=UIImagePNGRepresentation(image);
     

@@ -16,11 +16,8 @@
 + (NSString *)libPrefPath;          // 配置目录，配置文件存这里
 + (NSString *)libCachePath;         // 缓存目录，系统永远不会删除这里的文件，ITUNES会删除
 + (NSString *)tmpPath;              // 临时缓存目录，APP退出后，系统可能会删除这里的内容
-+ (NSString *)downloadPath;
-+ (NSString *)downloadFileName;
 + (NSString *)iTunesVideoImagePath;
 + (NSString *)AlbumVideoImagePath;
-+ (NSString *)iapReceiptPath;       //用于存储iap内购返回的购买凭证
 + (BOOL)hasLive:(NSString *)path;   // 判断目录是否存在，不存在则创建
 + (BOOL)fileExists:(NSString *)path;
 + (BOOL)deleteFile:(NSString *)path;

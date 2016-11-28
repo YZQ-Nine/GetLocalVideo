@@ -177,14 +177,18 @@ singleton_implementation(FileWatcher)
 
 - (NSString *)saveImg:(UIImage *)image withVideoMid:(NSString *)videoMid{
     
+    if (!image) {
+        image = [UIImage imageNamed:@"posters_default_horizontal"];
+    }
+    if (!videoMid) {
+        videoMid = [NSString uuid];
+    }
     //png格式
     NSData *imagedata=UIImagePNGRepresentation(image);
     
     NSString *savedImagePath = [[SandBoxHelper iTunesVideoImagePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", videoMid]];
     
-    //    dispatch_async(fileWatcher_queue(), ^{
     [imagedata writeToFile:savedImagePath atomically:YES];
-    //    });
     
     return savedImagePath;
     

@@ -13,5 +13,6 @@
 
 + (NSString *)byteUnitConvert:(long long)length;
 
++ (NSString *)uuid;
 
 @end

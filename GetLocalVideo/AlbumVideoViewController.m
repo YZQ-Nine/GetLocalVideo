@@ -158,16 +158,12 @@
     PHAsset *asset = self.deleteArr[indexPath.row];
     
     [[PHImageManager defaultManager] requestPlayerItemForVideo:asset options:nil resultHandler:^(AVPlayerItem * _Nullable playerItem, NSDictionary * _Nullable info) {
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             playerViewController *MD = [[playerViewController alloc]init];
             MD.playerItem = playerItem;
             [self.navigationController pushViewController:MD animated:YES];
-            
         });
-        
     }];
-    
 }
 
 - (void)dealloc {
