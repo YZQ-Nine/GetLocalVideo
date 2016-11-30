@@ -15,11 +15,6 @@
 extern NSString *const DeleteItunesVideoSourceNotification;
 extern NSString *const DeleteAlbumVideoSourceNotification;
 
-/**
- *  自定义
- *  监听文件夹的变化
- */
-extern NSString *const FileChangedNotification;
 
 /**
  *  自定义

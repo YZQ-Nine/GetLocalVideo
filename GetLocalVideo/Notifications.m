@@ -11,7 +11,6 @@
 NSString *const DeleteItunesVideoSourceNotification = @"com.deleteiTunesVideoSource";
 NSString *const DeleteAlbumVideoSourceNotification = @"com.deleteAlbumVideoSource";
 
-NSString *const FileChangedNotification = @"com.fileChanged.notification";
 
 NSString *const RefreshAlbumUINotification = @"com.refreshAlbumUI.notification";
 NSString *const RefreshiTunesUINotification = @"com.refreshiTunesUI.notification";

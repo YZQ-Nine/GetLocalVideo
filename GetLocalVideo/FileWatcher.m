@@ -47,14 +47,11 @@ singleton_implementation(FileWatcher)
     
     [self startMonitorFile];
     
-    [self registNotification];
 }
 
 - (void)stopManager {
     
     dispatch_cancel(self.source);
-    [self unregistNotification];
-    
 }
 
 - (void)startMonitorFile {  //监听Document文件夹的变化
@@ -96,15 +93,6 @@ singleton_implementation(FileWatcher)
     
     self.source = source;
     dispatch_resume(self.source);
-}
-
-- (void)registNotification{
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(directoryDidChange) name:FileChangedNotification object:nil];
-}
-
-- (void)unregistNotification{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark 检索是不是通过iTunes导入视频引起的调用
